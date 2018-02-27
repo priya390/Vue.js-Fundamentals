@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Computed Properties</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+</head>
+<body>
+    <div id="app" class="container">
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <h1>You are <strong>{{ level }}</strong></h1>
+                <hr/>
+                <h3>Current XP: {{ xp }}</h3>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3">
+                <div class="row">
+                    <div class="col-md-6">
+                        <button class="btn btn-success btn-block" @click="addXP"><span class="glyphicon glyphicon-collapse-up"></span>Add XP</button>
+                    </div>
+                    <div class="col-md-6">
+                        <button class="btn btn-success btn-block" @click="rmXP"><span class="glyphicon glyphicon-collapse-down"></span>Remove XP</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+
+<script>
+    var app = new Vue({
+        el: '#app',
+        data: {
+            xp: 10
+        },
+        methods: {
+            addXP: function() {
+                return this.xp += 10 // Increments xp by 10
+            },
+            rmXP: function() {
+                return this.xp -= 10 // Decrements xp by 10
+            }
+        },
+        computed: {
+            level: function() { // Returns level of user
+                if (this.xp >= 200) {
+                    return "a Pro"
+                } else if(this.xp >= 100) {
+                    return "an Intermediate"
+                } else if (this.xp >= 0) {
+                    return "a Beginner"
+                } else {
+                    return "Banned"
+                }
+            }
+        }
+    })
+</script>
+</html>

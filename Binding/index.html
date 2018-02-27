@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Vue Binding</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+</head>
+<body>
+    <div id="app">
+        <h1 v-bind:title="title">{{ message }}</h1> <!-- Binds tooltip of h1 to title from data -->
+        <img :src="url" :alt="alt" :title="title"> <!-- Alternative way of v-bind -->
+    </div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+
+<script>
+    var app = new Vue({
+        el: '#app',
+        data: {
+            message: 'Hello, World!',
+            title: 'You opened the page on ' + new Date(),
+            url: 'https://vuejs.org/images/logo.png',
+            alt: 'Vue Logo'
+        }
+    })
+</script>
+</html>

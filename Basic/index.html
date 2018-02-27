@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Vue Introduction</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+</head>
+<body>
+    <div id="app">
+        <h1>{{ message }}</h1> <!-- Prints the message -->
+    </div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+
+<script>
+    // Vue Object
+    var app = new Vue({
+        el: '#app', //Binds to the div which has id app
+        data: {
+            message: 'Hello, World!'
+        }
+    })
+</script>
+</html>

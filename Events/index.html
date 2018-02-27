@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Events</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+    <style>
+        #app {
+            margin: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <h1>Count: {{ count }}</h1>
+        <button type="button" class="btn btn-primary" v-on:click="countUp"> Count Up </button>
+        <button type="button" class="btn btn-primary" @click="countDown"> Count Down </button> <!-- Alternate way -->
+    </div>
+</body>
+
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+<script>
+    var app = new Vue({
+        el: "#app",
+        data: {
+            message: "Hello, World!",
+            count: 0
+        },
+        methods: {
+            countUp: function() { //It will increment the counter
+                this.count += 1
+            },
+            countDown: function() { //It will decrement the counter
+                this.count -= 1
+            }
+        }
+    })
+</script>
+</html>

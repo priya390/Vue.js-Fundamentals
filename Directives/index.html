@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Vue Directives</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        [v-cloak] {
+            display : none;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <p v-text="message"></p>  <!-- Prints the message -->
+        <p v-html="intro"></p>  <!-- Prints the message and supports the markup tags -->
+        <p v-show="viewed">You have viewed this page</p> <!-- If false display:none, element is there -->
+        <p v-if="viewed1">You have viewed this page</p>  <!-- If false deletes the element -->
+        <p v-else>You have not viewed this page</p>  <!-- If else condition is false -->
+        <p v-pre>{{ message }}</p> <!-- Prints the text between tags as it is i.e. {{message}} -->
+        <p v-once>{{ message }}</p>  <!-- You can't change the value of message on browser from console window -->
+        <p v-cloak>{{ message }}</p>  <!-- The curly braces will not be displayed until the message loads on the screen -->
+    </div>
+</body>
+
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+
+<script>
+    var app = new Vue({
+        el: '#app',
+        data: {
+            message: "Hello, World!",
+            intro: "Welcome to Vue world! <small>It's awesome</small>",
+            viewed: true,
+            viewed1: false
+        }
+    })
+</script>
+</html>
