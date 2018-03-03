@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Compoents</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+
+    <style>
+        .user {
+            border : 1px solid #ccc;
+            background-color: white;
+            padding: 10px;
+        }
+    </style>
+
+</head>
+<body>
+    <div id="app">
+        <h1>{{ message }}</h1>
+        <hr/>
+        <app-user></app-user> <!-- using the components -->
+        <app-user></app-user>
+    </div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+
+<script>
+ /*Vue.component('app-user', {
+    data: function() {   //alternative way
+        return {
+            users: [
+                { username: 'ABC' },
+                { username: 'PQR' },
+                { username: 'XYZ' }
+            ]
+        };
+        },
+        template: '<div><div class="user" v-for="user in users"><p>Username: {{ user.username }} </p></div></div>'
+    }); */
+    var app = new Vue({
+        el: '#app',
+        data: {
+            message: 'Hello Vue world!',
+        },
+        components: {
+            'app-user': {
+                data() {
+                    return {
+                        users: [
+                            { username: 'ABC' },
+                            { username: 'PQR' },
+                            { username: 'XYZ' }
+                        ]       
+                    }
+                },
+                template: '<div><div class="user" v-for="user in users"><p>Username: {{ user.username }} </p></div></div>'
+            }
+        }
+    })
+</script>
+</html>
